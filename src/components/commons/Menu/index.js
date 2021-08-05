@@ -6,15 +6,15 @@ import { MenuWrapper } from "./styles/MenuWrapper";
 export default function Menu() {
     const links = [
         {
-            texto: "Home",
+            name: "Home",
             url: "/"
         },
         {
-            texto: "Perguntas Frequentes",
+            name: "Perguntas Frequentes",
             url: "/faq"
         },
         {
-            texto: "Sobre",
+            name: "Sobre",
             url: "/sobre"
         }
     ];
@@ -28,7 +28,7 @@ export default function Menu() {
               return (
                 <li key={index}>
                     <Text variant="smallestException" tag="a" href={link.url}>
-                        {link.texto}
+                        {link.name}
                     </Text>
                 </li>
               )
