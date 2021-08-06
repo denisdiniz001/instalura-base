@@ -6,22 +6,14 @@ import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import { propToStyle } from '../../../theme/utils/propToStyle';
 import { variantToStyle } from '../../../theme/utils/variantToStyle';
 
-const paragraph1 = css`${() => getVariant('paragraph1')}`;
-const smallestException = css`${() => getVariant('smallestException')}`;
+const paragraph1 = css`${() => variantToStyle('paragraph1')}`;
+const smallestException = css`${() => variantToStyle('smallestException')}`;
 const title = css`
-    ${() => getVariant('titleXS')}
+    ${() => variantToStyle('titleXS')}
     ${breakpointsMedia({
-        md: css`${() => getVariant('title')}`,
+        md: css`${() => variantToStyle('title')}`,
     })}
 `;
-
-function getVariant(variant) {
-    return ({ theme }) => {
-        return css`
-            ${get(theme.typographyVariants, variant)}
-        `;
-    }
-}
 
 const TextBase = styled.span`
     ${({variant}) => variantToStyle(variant)};
@@ -50,7 +42,7 @@ export default function Text({tag, variant, children, ...props}) {
 Text.propTypes = {
     children: PropTypes.node.isRequired,
     tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
-    variant: PropTypes.oneOf(['paragraph1', 'smallestException', 'title']),
+    variant: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }; 
 
 Text.defaultProps = {

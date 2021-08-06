@@ -19,7 +19,10 @@ export default function Home() {
 
       <div>
         <Text
-          variant="title"
+          variant={{
+            xs:"titleXS",
+            md: "title"
+          }}
           tag="h1"
           color="tertiary.main"
           textAlign={{
